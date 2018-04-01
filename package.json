@@ -1,12 +1,13 @@
 {
   "name": "fetch-jsonp-polyfill",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "a jsonp fetch polyfill",
-  "main": "bin/index.js",
+  "main": "dist/index.js",
   "directories": {
     "test": "test"
   },
   "scripts": {
+    "build": "uglifyjs ./lib/index.js -o ./dist/index.js -c -m",
     "test": "jest"
   },
   "keywords": [
@@ -14,8 +15,9 @@
     "jsonp"
   ],
   "author": "a-jie",
-  "license": "ISC",
+  "license": "MIT",
   "devDependencies": {
-    "jest": "^22.3.0"
+    "jest": "^22.3.0",
+    "uglify-js": "^3.3.17"
   }
 }
