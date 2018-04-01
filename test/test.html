@@ -1,0 +1,21 @@
+<script src="../libs/index.js"></script>
+
+<script>
+    var URL = 'http://jsfiddle.net/echo/jsonp/';
+
+    fetch(URL, {
+        method: "JSONP"
+    })
+    .then(response => response.json())
+    .then(res => {
+        console.log(res)
+        if (res.ok) {
+            console.log(res.json());
+        }
+
+        // expect(res.json()).toBe(3);
+    })
+    .catch(err => {
+        console.log(err);
+    });
+</script>

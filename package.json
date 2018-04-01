@@ -1,0 +1,21 @@
+{
+  "name": "fetch-jsonp-polyfill",
+  "version": "1.0.0",
+  "description": "a jsonp fetch polyfill",
+  "main": "bin/index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "fetch",
+    "jsonp"
+  ],
+  "author": "a-jie",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^22.3.0"
+  }
+}
