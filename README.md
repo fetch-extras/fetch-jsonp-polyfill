@@ -11,7 +11,7 @@ npm install fetch-jsonp-polyfill --save-dev
 ## Notice
 He can be compatible with almost all current jsonp polyfills, including[https://github.com/github/fetch](https://github.com/github/fetch) [https://github.com/matthew-andrews/isomorphic-fetch](https://github.com/matthew-andrews/isomorphic-fetch) [https://github.com/bitinn/node-fetch](https://github.com/bitinn/node-fetch) and many more.
 
-Please note that they must be introduced after them.
+Please note that they must be imported after them.
 
 ```
 require('isomorphic-fetch');
