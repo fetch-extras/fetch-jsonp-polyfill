@@ -8,6 +8,17 @@ You can install with npm.
 npm install fetch-jsonp-polyfill --save-dev
 ```
 
+## Notice
+He can be compatible with almost all current jsonp polyfills, including[https://github.com/github/fetch](https://github.com/github/fetch) [https://github.com/matthew-andrews/isomorphic-fetch](https://github.com/matthew-andrews/isomorphic-fetch) [https://github.com/bitinn/node-fetch](https://github.com/bitinn/node-fetch) and many more.
+
+Please note that they must be introduced after them.
+
+```
+require('isomorphic-fetch');
+require('fetch-jsonp-polyfill');
+```
+
+
 ## Usage
 You don't need to make any changes, just modify the `method:'GET'` to `method:'JSONP'`.
 In this way, I didn't modify any native code.
