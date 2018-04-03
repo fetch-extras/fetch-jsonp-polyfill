@@ -1,6 +1,6 @@
 # fetch-jsonp-polyfill
 
-JSONP is NOT supported in standard Fetch API.If you are sleepy for such a problem, please use this Polyfill.
+Native fetch api does not support jsonp, which is often very confusing. If you are persistent to use jsonp in fetch, you may wish to use this polyfill
 
 ## Installation
 You can install with npm.
@@ -9,13 +9,17 @@ npm install fetch-jsonp-polyfill --save-dev
 ```
 
 ## Notice
-He can be compatible with almost all current jsonp polyfills, including[https://github.com/github/fetch](https://github.com/github/fetch) [https://github.com/matthew-andrews/isomorphic-fetch](https://github.com/matthew-andrews/isomorphic-fetch) [https://github.com/bitinn/node-fetch](https://github.com/bitinn/node-fetch) and many more.
+It is compatible with almost all mainstream jsonp polyfills libraries. E.g[https://github.com/github/fetch](https://github.com/github/fetch) [https://github.com/matthew-andrews/isomorphic-fetch](https://github.com/matthew-andrews/isomorphic-fetch) [https://github.com/bitinn/node-fetch](https://github.com/bitinn/node-fetch)
 
-Please note that they must be imported after them.
+##### But it is important to note that you must import 'fetch-jsonp-polyfill' after them.
 
 ```
-require('isomorphic-fetch');
-require('fetch-jsonp-polyfill');
+require('isomorphic-fetch')
+require('fetch-jsonp-polyfill')
+
+or 
+import 'whatwg-fetch'
+import 'fetch-jsonp-polyfill'
 ```
 
 
