@@ -9,7 +9,7 @@ npm install fetch-jsonp-polyfill --save-dev
 ```
 
 ## Notice
-It is compatible with almost all mainstream jsonp polyfills libraries. E.g[https://github.com/github/fetch](https://github.com/github/fetch) [https://github.com/matthew-andrews/isomorphic-fetch](https://github.com/matthew-andrews/isomorphic-fetch) [https://github.com/bitinn/node-fetch](https://github.com/bitinn/node-fetch)
+It is compatible with almost all mainstream jsonp polyfills libraries. E.g [https://github.com/github/fetch](https://github.com/github/fetch) [https://github.com/matthew-andrews/isomorphic-fetch](https://github.com/matthew-andrews/isomorphic-fetch) [https://github.com/bitinn/node-fetch](https://github.com/bitinn/node-fetch)
 
 ##### But it is important to note that you must import 'fetch-jsonp-polyfill' after them.
 
@@ -25,11 +25,10 @@ import 'fetch-jsonp-polyfill'
 
 ## Usage
 You don't need to make any changes, just modify the `method:'GET'` to `method:'JSONP'`.
-In this way, I didn't modify any native code.
-```
-var URL = 'http://jsfiddle.net/echo/jsonp/';
+So simple, in fact I have almost no modifications.
 
-fetch(URL, {
+```
+fetch('http://jsfiddle.net/echo/jsonp/?hello=world', {
     method: "JSONP"
 })
 .then(res => res.json())
@@ -38,7 +37,7 @@ fetch(URL, {
 })
 .catch(err => {
     console.log(err);
-});
+})
 ```
 
 ## Other Options
