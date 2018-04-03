@@ -1,21 +1,89 @@
-<script src="../lib/index.js"></script>
+<!DOCTYPE html>
+<html>
 
-<script>
-    var URL = 'http://jsfiddle.net/echo/jsonp/';
+<head>
+    <title>Fetch JSONP PolyFill Tests</title>
+    <link rel="stylesheet" href="../node_modules/mocha/mocha.css">
+</head>
 
-    fetch(URL, {
-        method: "JSONP"
-    })
-    .then(response => response.json())
-    .then(res => {
-        console.log(res)
-        if (res.ok) {
-            console.log(res.json());
-        }
+<body>
+    <div id="mocha"></div>
+    <script src="../node_modules/mocha/mocha.js"></script>
+    <script src="../node_modules/chai/chai.js"></script>
+    <script src="../lib/index.js"></script>
+    <script>mocha.setup('bdd')</script>
 
-        // expect(res.json()).toBe(3);
-    })
-    .catch(err => {
-        console.log(err);
-    });
-</script>
+    <script>
+        var assert = chai.assert;
+        var expect = chai.expect;
+
+        describe('Test Fetch JSONP', function () {
+
+            it('basic fetch jsonp should return json data', function (done) {
+                fetch('http://jsfiddle.net/echo/jsonp/?hello=world', { method: "JSONP" })
+                    .then(response => response.json())
+                    .then(data => {
+                        expect(data.hello).to.equal('world');
+                        done();
+                    })
+                    .catch(err => {
+                        done(err);
+                        console.log(err);
+                    });
+            });
+
+
+            it('error url should fetch failed!', function (done) {
+                fetch('http://jsfiddle.net/echo/jsonp1111111/?hello=world', { method: "JSONP" })
+                    .then(response => response.json())
+                    .then(data => {
+                        assert.equal(data.hello, 'world');
+                        done();
+                    })
+                    .catch(err => {
+                        assert.equal(true, true);
+                        done();
+                    });
+            });
+
+            it('use custom callbackName', function (done) {
+                fetch('http://jsfiddle.net/echo/jsonp/?hello=world', {
+                    method: "JSONP",
+                    callbackName: "jsonp_callback",
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        assert.equal(data.hello, 'world');
+                        done();
+                    })
+                    .catch(err => {
+                        console.log(err);
+                        assert.equal(true, true);
+                    });
+            });
+            
+            it('use custom callback', function (done) {
+                fetch('http://jsfiddle.net/echo/jsonp/?hello=world', {
+                    method: "JSONP",
+                    timeout: 8000,
+                    callback: "callback1",
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        assert.equal(data.hello, 'world');
+                        done();
+                    })
+                    .catch(err => {
+                        console.log(err);
+                        assert.equal(true, true);
+                    });
+            });
+        });
+    </script>
+
+    <script>
+        mocha.run();
+    </script>
+</body>
+
+</html>
